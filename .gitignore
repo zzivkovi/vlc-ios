@@ -9,3 +9,4 @@ External
 ImportedSources
 DerivedData
 Pods
+vendor/bundle

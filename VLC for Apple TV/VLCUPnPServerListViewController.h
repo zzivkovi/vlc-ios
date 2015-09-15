@@ -1,18 +1,21 @@
 /*****************************************************************************
+ * VLCUPnPServerListViewController.h
  * VLC for iOS
  *****************************************************************************
  * Copyright (c) 2015 VideoLAN. All rights reserved.
  * $Id$
  *
- * Authors: Felix Paul Kühne <fkuehne # videolan.org>
+ * Author: Felix Paul Kühne <fkuehne # videolan.org>
  *
  * Refer to the COPYING file of the official project for license.
  *****************************************************************************/
 
-#import <UIKit/UIKit.h>
+#import "VLCNetworkListViewController.h"
 
-@interface SecondViewController : UIViewController
+@class MediaServer1Device;
 
+@interface VLCUPnPServerListViewController : UITableViewController
+
+- (void)configureWithUPNPDevice:(MediaServer1Device *)device header:(NSString *)header andRootID:(NSString *)rootID;
 
 @end
-

@@ -19,7 +19,10 @@
 @end
 
 @implementation FirstViewController
-
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.url = [NSURL URLWithString:@"http://streams.videolan.org/streams/mp4/Mr_MrsSmith-h264_aac.mp4"];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -34,7 +37,7 @@
     _mediaplayer.drawable = self.view;
 
     /* create a media object and give it to the player */
-    _mediaplayer.media = [VLCMedia mediaWithURL:[NSURL URLWithString:@"http://streams.videolan.org/streams/mp4/Mr_MrsSmith-h264_aac.mp4"]];
+    _mediaplayer.media = [VLCMedia mediaWithURL:self.url];
 
     [_mediaplayer play];
 }
