@@ -87,6 +87,9 @@ NSString *const VLCRemoteBrowsingTVCellIdentifier = @"VLCRemoteBrowsingTVCell";
     if (title != nil && !_isDirectory && _downloadArtwork) {
         [_artworkProvider searchForArtworkForVideoRelatedString:title];
     }
+
+    // ZZ: Update title color
+    self.titleLabel.textColor = [UIColor colorWithWhite:0.5 alpha:1];
 }
 
 - (NSString *)title
@@ -97,6 +100,8 @@ NSString *const VLCRemoteBrowsingTVCellIdentifier = @"VLCRemoteBrowsingTVCell";
 - (void)setSubtitle:(NSString *)subtitle
 {
     self.subtitleLabel.text = subtitle;
+    // ZZ: Update subtitle color
+    self.subtitleLabel.textColor = [UIColor colorWithWhite:0.5 alpha:1];
 }
 
 - (NSString *)subtitle
