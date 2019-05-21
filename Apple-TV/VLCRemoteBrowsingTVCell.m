@@ -76,6 +76,14 @@ NSString *const VLCRemoteBrowsingTVCellIdentifier = @"VLCRemoteBrowsingTVCell";
     [self.thumbnailImageView setImage:thumbnailImage];
 }
 
+- (void)setThumbnailAlpha:(CGFloat)thumbnailAlpha {
+    self.thumbnailImageView.alpha = thumbnailAlpha;
+}
+
+- (CGFloat)thumbnailAlpha {
+    return  self.thumbnailImageView.alpha;
+}
+
 -(UIImage *)thumbnailImage
 {
     return self.thumbnailImageView.image;

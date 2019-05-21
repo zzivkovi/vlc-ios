@@ -245,6 +245,7 @@
 		8D4F9B472141630000E478BE /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4F9B462141630000E478BE /* MediaModel.swift */; };
 		8D66A47320AC61B900FA5B92 /* MediaLibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D66A47220AC61B900FA5B92 /* MediaLibraryService.swift */; };
 		8D6E1588223BBAF600077DD3 /* MiniPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6E1587223BBAF600077DD3 /* MiniPlayer.swift */; };
+		8DAC34012294135700031648 /* PlaybackHistoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAC34002294135700031648 /* PlaybackHistoryManager.swift */; };
 		8DD6516F208C89BC0052EE68 /* VLCAccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD6516E208C89BC0052EE68 /* VLCAccessibilityIdentifier.swift */; };
 		8DD651BA208F6AF00052EE68 /* ActionSheetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD651B9208F6AF00052EE68 /* ActionSheetCell.swift */; };
 		8DD651C4208F786F0052EE68 /* ActionSheetSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD651C3208F786F0052EE68 /* ActionSheetSectionHeader.swift */; };
@@ -810,6 +811,7 @@
 		8D4F9B462141630000E478BE /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
 		8D66A47220AC61B900FA5B92 /* MediaLibraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaLibraryService.swift; sourceTree = "<group>"; };
 		8D6E1587223BBAF600077DD3 /* MiniPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayer.swift; sourceTree = "<group>"; };
+		8DAC34002294135700031648 /* PlaybackHistoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaybackHistoryManager.swift; sourceTree = "<group>"; };
 		8DD6516E208C89BC0052EE68 /* VLCAccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VLCAccessibilityIdentifier.swift; sourceTree = "<group>"; };
 		8DD651B9208F6AF00052EE68 /* ActionSheetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetCell.swift; sourceTree = "<group>"; };
 		8DD651C3208F786F0052EE68 /* ActionSheetSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheetSectionHeader.swift; sourceTree = "<group>"; };
@@ -1769,6 +1771,7 @@
 		7DEC8BEF1BD68D71006E1093 /* Settings and stuff */ = {
 			isa = PBXGroup;
 			children = (
+				8DAC33FF2294133100031648 /* Playback History */,
 				7DC0B56D1C0094370027BFAD /* VLCSettingsViewController.h */,
 				7DC0B56E1C0094370027BFAD /* VLCSettingsViewController.m */,
 				7DDE418C1BE9225A0065C53A /* VLCAboutViewController.h */,
@@ -1862,6 +1865,14 @@
 			);
 			name = MiniPlayer;
 			path = Resources/Xib/MiniPlayer;
+			sourceTree = "<group>";
+		};
+		8DAC33FF2294133100031648 /* Playback History */ = {
+			isa = PBXGroup;
+			children = (
+				8DAC34002294135700031648 /* PlaybackHistoryManager.swift */,
+			);
+			name = "Playback History";
 			sourceTree = "<group>";
 		};
 		8DD651B0208F62B70052EE68 /* ActionSheet */ = {
@@ -2848,6 +2859,7 @@
 				7DC5A3EC1BF63F4B00CFEBA8 /* VLCMediaFileDiscoverer.m in Sources */,
 				7D3E528B1BD7B5E100309D15 /* VLCCloudServicesTVViewController.m in Sources */,
 				DD9D8F6B1C01FE5B00B4060F /* VLCPlaybackInfoCollectionViewDataSource.m in Sources */,
+				8DAC34012294135700031648 /* PlaybackHistoryManager.swift in Sources */,
 				7D405ED41BEA150C006ED886 /* VLCActivityManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

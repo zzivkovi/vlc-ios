@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable) NSString *subtitle;
 @property (nonatomic, nullable) UIImage *thumbnailImage;
 @property (nonatomic, nullable) NSURL *thumbnailURL;
+@property (nonatomic, assign) CGFloat thumbnailAlpha;
 @property (nonatomic) BOOL isDirectory;
 @property (nonatomic) BOOL couldBeAudioOnlyMedia;
 #if DOWNLOAD_SUPPORTED

@@ -17,6 +17,7 @@
 #import "VLCSiriRemoteGestureRecognizer.h"
 #import "VLCNetworkImageView.h"
 #import "VLCMetaData.h"
+#import "VLC-Swift.h"
 
 typedef NS_ENUM(NSInteger, VLCPlayerScanState)
 {
@@ -37,6 +38,7 @@ typedef NS_ENUM(NSInteger, VLCPlayerScanState)
 @property (nonatomic) NSNumber *scanSavedPlaybackRate;
 @property (nonatomic) VLCPlayerScanState scanState;
 @property (nonatomic) NSString *lastArtist;
+@property (nonatomic, strong) NSString *currentMediaLastPathComponent;
 
 @property (nonatomic, readonly, getter=isSeekable) BOOL seekable;
 
@@ -55,6 +57,7 @@ typedef NS_ENUM(NSInteger, VLCPlayerScanState)
 {
     self.extendedLayoutIncludesOpaqueBars = YES;
     self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.currentMediaLastPathComponent = nil;
 
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self
@@ -829,6 +832,14 @@ currentMediaHasTrackToChooseFrom:(BOOL)currentMediaHasTrackToChooseFrom
                 self.bufferingLabel.hidden = YES;
             }];
         }
+    }
+
+    // ZZ: Save playback history
+    if(![controller.currentlyPlayingMedia.url.lastPathComponent isEqualToString:self.currentMediaLastPathComponent])
+    {
+        self.currentMediaLastPathComponent = controller.currentlyPlayingMedia.url.lastPathComponent;
+        if(self.currentMediaLastPathComponent != nil)
+            [[VLCPlaybackHistoryManager shared] savePlayedFile:self.currentMediaLastPathComponent];
     }
 }
 

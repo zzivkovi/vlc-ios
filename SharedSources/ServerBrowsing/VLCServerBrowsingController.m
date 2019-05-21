@@ -20,6 +20,7 @@
 #if TARGET_OS_TV
 #import "VLCFullscreenMovieTVViewController.h"
 #import "MetaDataFetcherKit.h"
+#import "VLC-Swift.h"
 #endif
 
 #if DOWNLOAD_SUPPORTED
@@ -80,6 +81,15 @@
         cell.isDirectory = NO;
         cell.thumbnailImage = self.genericFileImage;
 
+        // ZZ: Save file to playback history
+#if TARGET_OS_TV
+        NSString *identifier = [item.URL lastPathComponent];
+        if (identifier != nil) {
+            CGFloat alpha = [[VLCPlaybackHistoryManager shared] didPlayFile:identifier] ? 0.2 : 1.0;
+            cell.thumbnailAlpha = alpha;
+        }
+#endif
+        
         NSString *sizeString = item.fileSizeBytes ? [self.byteCounterFormatter stringFromByteCount:item.fileSizeBytes.longLongValue] : nil;
 
         NSString *duration = nil;
@@ -205,6 +215,16 @@
     vpc.fullscreenSessionRequested = YES;
     [vpc playMediaList:mediaList firstIndex:startIndex subtitlesFilePath:nil];
     [self showMovieViewController];
+
+    // ZZ: Save file to playback history
+#if TARGET_OS_TV
+    if(mediaList.count > 0) {
+        VLCMedia *item = [mediaList mediaAtIndex:0];
+        NSString *identifier = [item.url lastPathComponent];
+        if (identifier != nil)
+            [[VLCPlaybackHistoryManager shared] savePlayedFile:identifier];
+    }
+#endif
 }
 
 - (void)streamFileForItem:(id<VLCNetworkServerBrowserItem>)item
