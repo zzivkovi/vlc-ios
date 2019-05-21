@@ -42,6 +42,10 @@ static NSString * const VLCSearchableServerBrowsingTVViewControllerSectionHeader
     flowLayout.headerReferenceSize = searchController.searchBar.bounds.size;
 
     [self.collectionView registerClass:[VLCSearchableServerBrowsingTVViewControllerHeader class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:VLCSearchableServerBrowsingTVViewControllerSectionHeaderKey];
+
+    // ZZ: Update search bar text color
+    UITextField *textField = [searchController.searchBar valueForKey:@"searchField"];
+    textField.textColor = [UIColor redColor];
 }
 
 #pragma mark - UICollectionViewDataSource
