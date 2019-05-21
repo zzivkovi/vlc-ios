@@ -882,8 +882,9 @@ currentMediaHasTrackToChooseFrom:(BOOL)currentMediaHasTrackToChooseFrom
         self.audioTitleLabel.text = title;
         self.audioTitleLabel.hidden = NO;
 
+        // ZZ: Disable audio playback view
         [UIView animateWithDuration:0.3 animations:^{
-            self.audioView.hidden = NO;
+//            self.audioView.hidden = NO;
         }];
     } else if (!self.audioView.hidden) {
         self.audioView.hidden = YES;
