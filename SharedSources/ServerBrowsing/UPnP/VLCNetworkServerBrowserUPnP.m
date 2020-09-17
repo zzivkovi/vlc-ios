@@ -182,7 +182,6 @@
 @end
 
 @interface VLCNetworkServerBrowserItemUPnP ()
-@property (nonatomic, readonly) MediaServer1BasicObject *mediaServerObject;
 @property (nonatomic, readonly) MediaServer1Device *upnpDevice;
 
 @end

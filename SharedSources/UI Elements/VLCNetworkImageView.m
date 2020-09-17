@@ -43,6 +43,16 @@ static NSCache *sharedImageCache = nil;
 - (void)setImageWithURL:(NSURL *)url {
 
     [self cancelLoading];
+
+    // Replace default album art with dark image
+    if ([url.absoluteString isEqualToString:@"object.container.storageFolder"]) {
+        self.image = [UIImage imageNamed:@"folder"];
+        return;
+    } else if ([url.absoluteString containsString:@"object.item.audioItem.musicTrack"]) {
+        self.image = [UIImage imageNamed:@"audio"];
+        return;
+    }
+
     UIImage *cachedImage = [self cacheImageForURL:url];
     if (cachedImage) {
         self.image = cachedImage;

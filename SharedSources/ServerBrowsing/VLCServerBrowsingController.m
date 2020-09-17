@@ -16,6 +16,8 @@
 #import "UIDevice+VLC.h"
 
 #import "VLCPlaybackController.h"
+#import "VLCNetworkServerBrowserUPnP.h"
+#import "MediaServer1BasicObject.h"
 
 #if TARGET_OS_TV
 #import "VLCFullscreenMovieTVViewController.h"
@@ -115,7 +117,13 @@
     cell.title = item.name;
 
     NSURL *thumbnailURL = nil;
-    if ([item respondsToSelector:@selector(thumbnailURL)])
+    // ZZ: replace server icons with placeholders
+    VLCNetworkServerBrowserItemUPnP *upnpItem = item;
+    BOOL hasFolderOrVideo = ([upnpItem.mediaServerObject.objectClass isEqualToString:@"object.container.storageFolder"] ||
+                             [upnpItem.mediaServerObject.objectClass isEqualToString:@"object.item.audioItem.musicTrack"]);
+    if (hasFolderOrVideo)
+        thumbnailURL = [NSURL URLWithString: upnpItem.mediaServerObject.objectClass];
+    else if ([item respondsToSelector:@selector(thumbnailURL)])
         thumbnailURL = item.thumbnailURL;
 
     [cell setThumbnailURL:thumbnailURL];

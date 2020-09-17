@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class MediaServer1BasicObject;
 @interface VLCNetworkServerBrowserItemUPnP : NSObject <VLCNetworkServerBrowserItem>
 - (instancetype)initWithBasicObject:(MediaServer1BasicObject *)basicObject device:(MediaServer1Device *)device;
+@property (nonatomic, readonly) MediaServer1BasicObject *mediaServerObject;
 @property (nonatomic, readonly, nullable) NSString *duration;
 @property (nonatomic, readonly, nullable) NSURL *subtitleURL;
 @property (nonatomic, readonly, nullable) NSURL *thumbnailURL;
